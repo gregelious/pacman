@@ -47,27 +47,7 @@ public class GhostMovement : MonoBehaviour
         {
             SceneManager.LoadScene("SampleScene");
         }
-        if (other.tag == "Wall" && goUp == true) 
-        {
-            if (Random.Range(0, 100) < 50)
-            {
-                goLeft = true;
-
-                goUp = false;
-                goDown = false;
-                
-                goRight = false;
-            }
-            else
-            {
-                goRight = true;
-
-                goUp = false;
-                goDown = false;
-                goLeft = false;
-               
-            }
-        }
+        
         else if (other.tag == "UpLeft" && goUp == true)
         {
             goLeft = true;
@@ -86,28 +66,7 @@ public class GhostMovement : MonoBehaviour
 
             goRight = true;
         }
-        else if (other.tag == "Wall" && goDown == true)
-        {
-            if (Random.Range(0, 100) < 50)
-            {
-                goLeft = true;
-
-                goUp = false;
-                goDown = false;
-                
-                goRight = false;
-            }
-            else
-            {
-                goRight = true;
-
-                goUp = false;
-                goDown = false;
-                goLeft = false;
-                
-            }
-            
-        }
+        
         else if (other.tag == "DownLeft" && goDown == true)
         {
             goLeft = true;
@@ -126,28 +85,7 @@ public class GhostMovement : MonoBehaviour
 
             goRight = true;
         }
-        else if (other.tag == "Wall" && goLeft == true)
-        {
-            if (Random.Range(0, 100) < 50)
-            {
-                goUp = true;
-
-                
-                goDown = false;
-                goLeft = false;
-                goRight = false;
-            }
-            else
-            {
-                goDown = true;
-
-                goUp = false;
-               
-                goLeft = false;
-                goRight = false;
-            }
-            
-        }
+        
         else if (other.tag == "LeftUp" && goLeft == true)
         {
             goUp = true;
@@ -166,27 +104,24 @@ public class GhostMovement : MonoBehaviour
             goLeft = false;
             goRight = false;
         }
-        else if (other.tag == "Wall" && goRight == true)
+        
+        else if (other.tag == "RightUp" && goRight == true)
         {
-            if (Random.Range(0, 100) < 50)
-            {
-                goUp = true;
+            goUp = true;
 
-                
-                goDown = false;
-                goLeft = false;
-                goRight = false;
-            }
-            else
-            {
-                goDown = true;
 
-                goUp = false;
-                
-                goLeft = false;
-                goRight = false;
-            }
-            
+            goDown = false;
+            goLeft = false;
+            goRight = false;
+        }
+        else if (other.tag == "RightDown" && goRight == true)
+        {
+            goDown = true;
+
+            goUp = false;
+
+            goLeft = false;
+            goRight = false;
         }
     }
 }
