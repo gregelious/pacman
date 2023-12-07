@@ -14,7 +14,7 @@ public class GhostMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        xSpeed = 0.0125f; // normal speed
+        xSpeed = 0.005f; // normal speed
     }
 
     // Update is called once per frame
@@ -41,34 +41,93 @@ public class GhostMovement : MonoBehaviour
     //function for collision
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Wall") // if player hits a car, or water
+        //Random.Range(0, 100) < 50
+        if (other.tag == "Wall" && goUp == true) 
         {
-            if (goUp == true || goDown == true)
+            if (Random.Range(0, 100) < 50)
             {
-                if (Random.Range(0, 100) < 50)
-                {
-                    goLeft = true;
-                }
-                else
-                {
-                    goRight = true;
-                }
+                goLeft = true;
+
                 goUp = false;
                 goDown = false;
+                
+                goRight = false;
             }
             else
             {
-                if (Random.Range(0, 100) < 50)
-                {
-                    goUp = true;
-                }
-                else
-                {
-                    goDown = true;
-                }
+                goRight = true;
+
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+               
+            }
+        }
+        else if (other.tag == "Wall" && goDown == true)
+        {
+            if (Random.Range(0, 100) < 50)
+            {
+                goLeft = true;
+
+                goUp = false;
+                goDown = false;
+                
+                goRight = false;
+            }
+            else
+            {
+                goRight = true;
+
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+                
+            }
+            
+        }
+        else if (other.tag == "Wall" && goLeft == true)
+        {
+            if (Random.Range(0, 100) < 50)
+            {
+                goUp = true;
+
+                
+                goDown = false;
                 goLeft = false;
                 goRight = false;
             }
+            else
+            {
+                goDown = true;
+
+                goUp = false;
+               
+                goLeft = false;
+                goRight = false;
+            }
+            
+        }
+        else if (other.tag == "Wall" && goRight == true)
+        {
+            if (Random.Range(0, 100) < 50)
+            {
+                goUp = true;
+
+                
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+            }
+            else
+            {
+                goDown = true;
+
+                goUp = false;
+                
+                goLeft = false;
+                goRight = false;
+            }
+            
         }
     }
 }
