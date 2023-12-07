@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GhostMovement : MonoBehaviour
 {
+    Health damage;// damage is an object using Health class
+
+    public GameObject hitPoints; //hisPoints is an object
 
     public float xSpeed = 0; //horizontal speed
     private bool goUp = true; // true = up, false = down
@@ -16,6 +19,7 @@ public class GhostMovement : MonoBehaviour
     void Start()
     {
         xSpeed = 0.005f; // normal speed
+        damage = hitPoints.GetComponent<Health>(); //initializes Enemies
     }
 
     // Update is called once per frame
@@ -45,6 +49,7 @@ public class GhostMovement : MonoBehaviour
         //Random.Range(0, 100) < 50
         if (other.tag == "Player")
         {
+            damage.TakeDamage(1); // takes one damage
             SceneManager.LoadScene("SampleScene");
         }
         else if (other.tag == "Reverse")
