@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -29,6 +30,16 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             moving = false;
+        }
+    }
+
+    //function for collision
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Wall") // if player hits a car, or water
+        {
+            //Debug.Log("Hit"); for debugging
+            SceneManager.LoadScene("Start Scene"); // restart game
         }
     }
 }
