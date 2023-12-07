@@ -47,7 +47,7 @@ public class GhostMovement : MonoBehaviour
         {
             SceneManager.LoadScene("SampleScene");
         }
-            if (other.tag == "Wall" && goUp == true) 
+        if (other.tag == "Wall" && goUp == true) 
         {
             if (Random.Range(0, 100) < 50)
             {
@@ -67,6 +67,24 @@ public class GhostMovement : MonoBehaviour
                 goLeft = false;
                
             }
+        }
+        else if (other.tag == "UpLeft" && goUp == true)
+        {
+            goLeft = true;
+
+            goUp = false;
+            goDown = false;
+
+            goRight = false;
+        }
+        else if (other.tag == "UpRight" && goUp == true)
+        {
+            goLeft = false;
+
+            goUp = false;
+            goDown = false;
+
+            goRight = true;
         }
         else if (other.tag == "Wall" && goDown == true)
         {
