@@ -47,7 +47,87 @@ public class GhostMovement : MonoBehaviour
         {
             SceneManager.LoadScene("SampleScene");
         }
-        
+        else if (other.tag == "Reverse")
+        {
+            if (goUp == true)
+            {
+                goDown = true;
+
+                goUp = false;
+
+                goLeft = false;
+                goRight = false;
+            }
+            else if (goDown == true)
+            {
+                goUp = true;
+
+
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+            }
+            else if (goLeft == true)
+            {
+                goLeft = false;
+
+                goUp = false;
+                goDown = false;
+
+                goRight = true;
+            }
+            else if (goRight == true)
+            {
+                goLeft = true;
+
+                goUp = false;
+                goDown = false;
+
+                goRight = false;
+            }
+        }
+        else if (other.tag == "LeftRight" && (goUp == true || goDown == true))
+        {
+            if (Random.Range(0, 100) < 50)
+            {
+                goLeft = true;
+
+                goUp = false;
+                goDown = false;
+
+                goRight = false;
+            }
+            else
+            {
+                goLeft = false;
+
+                goUp = false;
+                goDown = false;
+
+                goRight = true;
+            }
+        }
+        else if (other.tag == "UpDown" && (goLeft == true || goRight == true))
+        {
+            if (Random.Range(0, 100) < 50)
+            {
+                goUp = true;
+
+
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+            }
+            else
+            {
+                goDown = true;
+
+                goUp = false;
+
+                goLeft = false;
+                goRight = false;
+            }
+        }
         else if (other.tag == "UpLeft" && goUp == true)
         {
             goLeft = true;
