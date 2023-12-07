@@ -9,6 +9,8 @@ TagManager:
   - StartWall
   - UpLeft
   - UpRight
+  - DownLeft
+  - DownRight
   layers:
   - Default
   - TransparentFX

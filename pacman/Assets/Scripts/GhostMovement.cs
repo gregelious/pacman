@@ -108,6 +108,24 @@ public class GhostMovement : MonoBehaviour
             }
             
         }
+        else if (other.tag == "DownLeft" && goDown == true)
+        {
+            goLeft = true;
+
+            goUp = false;
+            goDown = false;
+
+            goRight = false;
+        }
+        else if (other.tag == "DownRight" && goDown == true)
+        {
+            goLeft = false;
+
+            goUp = false;
+            goDown = false;
+
+            goRight = true;
+        }
         else if (other.tag == "Wall" && goLeft == true)
         {
             if (Random.Range(0, 100) < 50)
