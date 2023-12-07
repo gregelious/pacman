@@ -49,8 +49,7 @@ public class GhostMovement : MonoBehaviour
         //Random.Range(0, 100) < 50
         if (other.tag == "Player")
         {
-            damage.TakeDamage(1); // takes one damage
-            SceneManager.LoadScene("SampleScene");
+            damage.TakeDamage(1);
         }
         else if (other.tag == "Reverse")
         {
