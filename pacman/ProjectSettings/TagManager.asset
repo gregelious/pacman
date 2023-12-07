@@ -11,6 +11,8 @@ TagManager:
   - UpRight
   - DownLeft
   - DownRight
+  - LeftUp
+  - LeftDown
   layers:
   - Default
   - TransparentFX
