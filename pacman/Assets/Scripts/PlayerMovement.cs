@@ -39,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "Wall") // if player hits a car, or water
         {
             //Debug.Log("Hit"); for debugging
+            SceneManager.LoadScene("SampleScene"); // restart game
+        }
+        if (other.tag == "StartWall") // if player hits a car, or water
+        {
+            //Debug.Log("Hit"); for debugging
             SceneManager.LoadScene("Start Scene"); // restart game
         }
     }

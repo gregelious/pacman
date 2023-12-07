@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GhostMovement : MonoBehaviour
 {
@@ -42,7 +43,11 @@ public class GhostMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Random.Range(0, 100) < 50
-        if (other.tag == "Wall" && goUp == true) 
+        if (other.tag == "Player")
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+            if (other.tag == "Wall" && goUp == true) 
         {
             if (Random.Range(0, 100) < 50)
             {
